@@ -16,7 +16,7 @@ core/
   residual_diagnostics.py           # Cox-Snell residual diagnostics for RSF and GBS
   actor_proxy_robustness.py         # Actor-proxy sensitivity analysis
   dominant_country_robustness.py    # Dominant-country exclusion analysis
-  reconstruct_polecat_enhanced.py   # Data-preparation audit script
+  audit_polecat_event_archive.py    # Data-preparation audit script
 docs/
   DATA_AVAILABILITY.md              # Data source links and local file layout
 requirements.txt
@@ -37,7 +37,8 @@ Expected local structure after downloading and preparing the data:
 
 ```text
 data/
-  POLECAT_merged_cleaned_enhanced.parquet
+  processed/
+    polecat_plover_event_archive_2018_2024.parquet
   dataverse_files/
     ngecEvents.DV.2018.txt
     ngecEvents.DV.2019.txt

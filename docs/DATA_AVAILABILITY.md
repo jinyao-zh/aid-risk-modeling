@@ -42,10 +42,10 @@ ngecEvents.DV.2024.txt
 The core scripts expect the processed event archive at:
 
 ```text
-data/POLECAT_merged_cleaned_enhanced.parquet
+data/processed/polecat_plover_event_archive_2018_2024.parquet
 ```
 
-This file is not included because it is large. The script `core/reconstruct_polecat_enhanced.py` documents and audits the raw-to-enhanced data preparation check used in the analysis.
+This file is not included because it is large. The script `core/audit_polecat_event_archive.py` documents and audits the raw-to-processed data preparation check used in the analysis.
 
 ## Excluded Files
 

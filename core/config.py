@@ -15,7 +15,7 @@ ACADEMIC_PALETTE = {
 
 CONFIG = {
     "output_base_path": PROJECT_ROOT / "result",
-    "global_dataset": PROJECT_ROOT / "data" / "POLECAT_merged_cleaned_enhanced.parquet",
+    "global_dataset": PROJECT_ROOT / "data" / "processed" / "polecat_plover_event_archive_2018_2024.parquet",
     "analysis_time_window": ("2018-01-01", "2024-06-30"),
     "analysis_window_days": 30,
     "max_distance_km": 500,

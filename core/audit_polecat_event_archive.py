@@ -1,8 +1,8 @@
 """
-Reconstruct and audit the POLECAT merged-cleaned-enhanced event dataset.
+Reconstruct and audit the processed POLECAT/PLOVER event archive.
 
 This script documents the upstream preprocessing step from Dataverse NGEC
-annual TSV files to the archived analysis-ready event dataset. It is designed
+annual TSV files to the archived analysis-ready event data. It is designed
 for reproducibility/audit tables rather than for changing downstream analyses.
 """
 
@@ -21,7 +21,7 @@ import pyarrow.parquet as pq
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_RAW_DIR = PROJECT_ROOT / "data" / "dataverse_files"
-DEFAULT_ARCHIVE = PROJECT_ROOT / "data" / "POLECAT_merged_cleaned_enhanced.parquet"
+DEFAULT_ARCHIVE = PROJECT_ROOT / "data" / "processed" / "polecat_plover_event_archive_2018_2024.parquet"
 
 
 def snake_case(name: str) -> str:
@@ -220,7 +220,7 @@ def compare_metrics(reconstructed: Summary, archived: Summary) -> pd.DataFrame:
             {
                 "metric": metric,
                 "reconstructed_from_raw": r_value,
-                "archived_enhanced_dataset": a_value,
+                "processed_event_archive": a_value,
                 "match": r_value == a_value,
                 "difference": "" if isinstance(r_value, str) else r_value - a_value,
             }
@@ -234,11 +234,11 @@ def counter_to_frame(counter: Counter[str], name: str) -> pd.DataFrame:
 
 def write_markdown_report(output_dir: Path, comparison: pd.DataFrame) -> None:
     lines = [
-        "# POLECAT Raw-to-Enhanced Dataset Audit",
+        "# POLECAT Raw-to-Processed Event Archive Audit",
         "",
         f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
         "",
-        "This audit reconstructs the merged-cleaned-enhanced event-level dataset from the Dataverse annual NGEC files and compares the resulting core dataset-level metrics with the archived enhanced dataset used by the modeling scripts.",
+        "This audit reconstructs the processed event archive from the Dataverse annual NGEC files and compares the resulting core dataset-level metrics with the processed event archive used by the modeling scripts.",
         "",
         "## Summary",
         "",
@@ -246,14 +246,14 @@ def write_markdown_report(output_dir: Path, comparison: pd.DataFrame) -> None:
         "",
         "## Raw Input Deduplication",
         "",
-        "The Dataverse annual files contain a small number of repeated `Event ID` rows. The archived enhanced dataset keeps one row per `event_id`; the reconstruction therefore applies the same deterministic de-duplication before comparison.",
+        "The Dataverse annual files contain a small number of repeated `Event ID` rows. The processed event archive keeps one row per `event_id`; the reconstruction therefore applies the same deterministic de-duplication before comparison.",
         "",
         "## Interpretation",
         "",
-        "Matching row counts, date ranges, source-file counts, and complete-key counts support the provenance claim that the archived enhanced dataset was constructed from the raw Dataverse annual POLECAT/NGEC event files with deterministic field harmonization and derived audit fields.",
+        "Matching row counts, date ranges, source-file counts, and complete-key counts support the provenance claim that the processed event archive was constructed from the raw Dataverse annual POLECAT/NGEC event files with deterministic field harmonization and derived audit fields.",
         "",
     ]
-    (output_dir / "raw_to_enhanced_audit_report.md").write_text("\n".join(lines), encoding="utf-8")
+    (output_dir / "raw_to_processed_audit_report.md").write_text("\n".join(lines), encoding="utf-8")
 
 
 def parse_args() -> argparse.Namespace:
@@ -263,7 +263,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--chunksize", type=int, default=200_000)
     parser.add_argument(
         "--output-dir",
-        default=str(PROJECT_ROOT / "result" / f"raw_to_enhanced_audit_{datetime.now().strftime('%Y%m%d_%H%M%S')}"),
+        default=str(PROJECT_ROOT / "result" / f"raw_to_processed_audit_{datetime.now().strftime('%Y%m%d_%H%M%S')}"),
     )
     return parser.parse_args()
 
@@ -280,7 +280,7 @@ def main() -> None:
     archived = summarize_archive(archive)
 
     comparison = compare_metrics(reconstructed, archived)
-    comparison.to_csv(tables_dir / "raw_to_enhanced_audit_summary.csv", index=False, encoding="utf-8-sig")
+    comparison.to_csv(tables_dir / "raw_to_processed_audit_summary.csv", index=False, encoding="utf-8-sig")
     pd.DataFrame(
         [
             {
