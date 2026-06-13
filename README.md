@@ -1,6 +1,6 @@
 # Aid Risk Modeling
 
-This repository provides code-only replication materials for an analysis of post-aid violence risk in humanitarian settings.
+This repository contains the core analysis code for a study of post-aid violence risk in humanitarian settings.
 
 The package is intentionally lightweight. It includes scripts for event-data preparation, survival-dataset construction, Cox proportional hazards model comparison, RSF/GBS survival-model evaluation, residual diagnostics, and robustness analyses. Raw event data, processed analytical datasets, trained model objects, generated result tables, figures, and plotting scripts are not included.
 

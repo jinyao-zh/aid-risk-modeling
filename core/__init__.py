@@ -1,1 +1,1 @@
-"""Core replication code for post-aid violence risk modeling."""
+"""Core analysis code for post-aid violence risk modeling."""
