@@ -26,6 +26,13 @@ requirements.txt
 
 Event data are not redistributed in this repository. See `docs/DATA_AVAILABILITY.md` for source links and expected local paths.
 
+The analysis uses POLECAT/PLOVER event data. Users should cite the original data source and documentation when using these materials:
+
+- Scarborough, Grace I., Benjamin E. Bagozzi, Andreas Beger, John Berrie, Andrew Halterman, Philip A. Schrodt, and Jevon Spivey. 2023. "POLECAT Weekly Data." Harvard Dataverse. https://doi.org/10.7910/DVN/AJGVIT
+- PLOVER/POLECAT documentation: https://doi.org/10.7910/DVN/LMFPIP
+
+The source data page provides the current license and data-use information. Users should download the data from the original source and comply with the terms listed there.
+
 Expected local structure after downloading and preparing the data:
 
 ```text

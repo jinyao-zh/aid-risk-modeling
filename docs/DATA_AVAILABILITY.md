@@ -4,10 +4,20 @@ This repository does not include raw or processed event data.
 
 ## Primary Event Data
 
-The analysis uses POLECAT/PLOVER event data. Download the relevant annual NGEC event files from the source dataset:
+The analysis uses POLECAT/PLOVER event data. POLECAT is a machine-coded political event dataset based on the PLOVER ontology and distributed through Harvard Dataverse. Download the relevant annual NGEC event files from the source dataset:
 
 - POLECAT Weekly Data: https://doi.org/10.7910/DVN/AJGVIT
 - PLOVER/POLECAT documentation: https://doi.org/10.7910/DVN/LMFPIP
+
+Recommended data citation:
+
+> Scarborough, Grace I., Benjamin E. Bagozzi, Andreas Beger, John Berrie, Andrew Halterman, Philip A. Schrodt, and Jevon Spivey. 2023. "POLECAT Weekly Data." Harvard Dataverse. https://doi.org/10.7910/DVN/AJGVIT
+
+Please also consult and cite the associated PLOVER/POLECAT documentation when using event-type definitions, ontology fields, or coding assumptions.
+
+## License and Use Terms
+
+This repository does not redistribute POLECAT/PLOVER data. Users should obtain the data directly from the Harvard Dataverse source page and follow the current license and data-use terms listed there. As of June 2026, the Dataverse page listed the dataset under CC0 1.0 and included additional notes on permitted use, source-text restrictions, warranty disclaimers, and liability limitations. Because upstream terms may change, the source page should be treated as authoritative.
 
 Place the downloaded annual files under:
 
