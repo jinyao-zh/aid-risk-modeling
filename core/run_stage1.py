@@ -95,7 +95,7 @@ def run_stage1(output_dir: Path, sensitivity_mode: str = "refined") -> None:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Run Stage 1 Cox model tournament and scale selection.")
+    parser = argparse.ArgumentParser(description="Run Stage 1 Cox model comparison and scale selection.")
     parser.add_argument("--output-dir", default=None)
     parser.add_argument("--sensitivity-mode", default="refined")
     return parser.parse_args()

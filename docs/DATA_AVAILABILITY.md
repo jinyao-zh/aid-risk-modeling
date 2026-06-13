@@ -35,7 +35,7 @@ The core scripts expect the processed event archive at:
 data/POLECAT_merged_cleaned_enhanced.parquet
 ```
 
-This file is not included because it is large. The script `core/reconstruct_polecat_enhanced.py` documents and audits the raw-to-enhanced data consistency check used for the manuscript revision.
+This file is not included because it is large. The script `core/reconstruct_polecat_enhanced.py` documents and audits the raw-to-enhanced data preparation check used in the analysis.
 
 ## Excluded Files
 
@@ -46,4 +46,4 @@ The following are intentionally excluded from the GitHub package:
 - trained model objects
 - generated result tables
 - figures and maps
-- manuscript PDFs and LaTeX build artifacts
+- manuscript files and LaTeX build artifacts

@@ -1,9 +1,8 @@
-"""Actor-proxy robustness checks for Reviewer 2.
+"""Actor-proxy sensitivity checks.
 
-The reviewer questioned whether ActorDiv and SectorComp directly imply
-"organizational fragmentation." This script treats them more cautiously as
-event-data proxies for observed actor heterogeneity and checks whether the
-main Cox results are robust when ambiguous/unknown actor labels are excluded.
+This script treats ActorDiv and SectorComp as event-data proxies for observed
+actor heterogeneity and checks whether the main Cox results are robust when
+ambiguous or unknown actor labels are excluded.
 """
 
 from __future__ import annotations

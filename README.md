@@ -1,10 +1,8 @@
-# Beyond Hotspots Replication Code
+# Aid Risk Modeling
 
-This repository contains the core analysis code for the manuscript:
+This repository provides code-only replication materials for an analysis of post-aid violence risk in humanitarian settings.
 
-**Beyond Hotspots: An Interpretable Modeling Framework for Risk to Humanitarian Aid**
-
-The package is intentionally lightweight. It includes code for data construction, Cox model tournament, RSF/GBS survival-model comparison, residual diagnostics, and reviewer-requested robustness checks. It does **not** include raw event data, processed analytical datasets, model objects, result tables, figures, or plotting scripts.
+The package is intentionally lightweight. It includes scripts for event-data preparation, survival-dataset construction, Cox proportional hazards model comparison, RSF/GBS survival-model evaluation, residual diagnostics, and robustness analyses. Raw event data, processed analytical datasets, trained model objects, generated result tables, figures, and plotting scripts are not included.
 
 ## Repository Contents
 
@@ -12,13 +10,13 @@ The package is intentionally lightweight. It includes code for data construction
 core/
   config.py                         # Region definitions, time windows, feature labels
   data_processing.py                # Aid/attack filtering and survival-dataset construction
-  modeling.py                       # Cox, RSF, GBS, 5-fold CV, residual metrics
-  run_stage1.py                     # Stage 1 Cox tournament and scale selection
-  run_stage2.py                     # Stage 2 RSF/GBS comparison with stratified 5-fold CV
-  residual_diagnostics.py           # Cox-Snell residual fit metrics for RSF and GBS
-  actor_proxy_robustness.py         # ActorDiv/SectorComp robustness check
-  dominant_country_robustness.py    # Dominant-country exclusion robustness check
-  reconstruct_polecat_enhanced.py   # Raw-to-enhanced data audit helper
+  modeling.py                       # Survival models, cross-validation, residual metrics
+  run_stage1.py                     # Cox model comparison and scale selection
+  run_stage2.py                     # RSF/GBS comparison with stratified 5-fold CV
+  residual_diagnostics.py           # Cox-Snell residual diagnostics for RSF and GBS
+  actor_proxy_robustness.py         # Actor-proxy sensitivity analysis
+  dominant_country_robustness.py    # Dominant-country exclusion analysis
+  reconstruct_polecat_enhanced.py   # Data-preparation audit script
 docs/
   DATA_AVAILABILITY.md              # Data source links and local file layout
 requirements.txt
@@ -26,9 +24,9 @@ requirements.txt
 
 ## Data
 
-Data files are not included because they are large and should be obtained from the original data source. See `docs/DATA_AVAILABILITY.md` for download links and expected local paths.
+Event data are not redistributed in this repository. See `docs/DATA_AVAILABILITY.md` for source links and expected local paths.
 
-Expected local structure after downloading/preparing data:
+Expected local structure after downloading and preparing the data:
 
 ```text
 data/
@@ -45,23 +43,23 @@ data/
 
 ## Setup
 
-Create a Python environment and install dependencies:
+Create a Python environment and install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-The original analysis was run in a Conda environment with Python and the scientific stack listed in `requirements.txt`. Package versions may need adjustment depending on platform support for `scikit-survival`.
+The original analysis was run in a Conda environment with the scientific Python stack listed in `requirements.txt`. Package versions may need adjustment depending on platform support for `scikit-survival`.
 
 ## Core Workflow
 
-Run Stage 1 Cox tournament and scale selection:
+Run the Cox model comparison and scale-selection step:
 
 ```bash
 python core/run_stage1.py --output-dir result/stage1
 ```
 
-Run Stage 2 RSF/GBS comparison using stratified 5-fold cross-validation:
+Run the RSF/GBS comparison using stratified 5-fold cross-validation:
 
 ```bash
 python core/run_stage2.py \
@@ -77,7 +75,7 @@ python core/residual_diagnostics.py \
   --output-dir result/residual_diagnostics
 ```
 
-Run reviewer-requested robustness checks:
+Run robustness analyses:
 
 ```bash
 python core/actor_proxy_robustness.py \
@@ -90,7 +88,6 @@ python core/dominant_country_robustness.py \
 
 ## Notes
 
-- Stage 2 uses stratified 5-fold cross-validation as the primary validation design.
-- Rolling temporal validation and plotting scripts are not included in this lightweight release.
-- Generated results are written to `result/`, which is ignored by git.
-- Figures and manuscript PDFs are not included in this repository.
+- The primary validation design uses stratified 5-fold cross-validation.
+- Generated outputs are written to `result/`, which is ignored by git.
+- This release is limited to core analysis code; data files, figures, plotting scripts, manuscript files, and build artifacts are excluded.

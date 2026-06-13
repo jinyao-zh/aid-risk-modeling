@@ -1,1 +1,1 @@
-"""Core replication code for the Beyond Hotspots manuscript."""
+"""Core replication code for post-aid violence risk modeling."""

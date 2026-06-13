@@ -1,4 +1,4 @@
-"""Dominant-country robustness checks for reviewer response.
+"""Dominant-country robustness checks.
 
 This script removes the largest aid-observation country in each region and
 re-estimates the Stage 1 Cox models under the region-specific optimal
