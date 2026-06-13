@@ -9,6 +9,7 @@ The package is intentionally lightweight. It includes scripts for event-data pre
 ```text
 core/
   config.py                         # Region definitions, time windows, feature labels
+  prepare_polecat_event_archive.py  # Raw POLECAT/PLOVER files to processed event archive
   data_processing.py                # Aid/attack filtering and survival-dataset construction
   modeling.py                       # Survival models, cross-validation, residual metrics
   run_stage1.py                     # Cox model comparison and scale selection
@@ -16,7 +17,6 @@ core/
   residual_diagnostics.py           # Cox-Snell residual diagnostics for RSF and GBS
   actor_proxy_robustness.py         # Actor-proxy sensitivity analysis
   dominant_country_robustness.py    # Dominant-country exclusion analysis
-  audit_polecat_event_archive.py    # Data-preparation audit script
 docs/
   DATA_AVAILABILITY.md              # Data source links and local file layout
 requirements.txt
@@ -60,6 +60,14 @@ pip install -r requirements.txt
 The original analysis was run in a Conda environment with the scientific Python stack listed in `requirements.txt`. Package versions may need adjustment depending on platform support for `scikit-survival`.
 
 ## Core Workflow
+
+Prepare the processed event archive from downloaded POLECAT/PLOVER annual files:
+
+```bash
+python core/prepare_polecat_event_archive.py \
+  --raw-dir data/dataverse_files \
+  --output data/processed/polecat_plover_event_archive_2018_2024.parquet
+```
 
 Run the Cox model comparison and scale-selection step:
 

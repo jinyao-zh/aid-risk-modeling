@@ -45,7 +45,15 @@ The core scripts expect the processed event archive at:
 data/processed/polecat_plover_event_archive_2018_2024.parquet
 ```
 
-This file is not included because it is large. The script `core/audit_polecat_event_archive.py` documents and audits the raw-to-processed data preparation check used in the analysis.
+This file is not included because it is large. After downloading the annual POLECAT/PLOVER files, users can prepare the local processed archive with:
+
+```bash
+python core/prepare_polecat_event_archive.py \
+  --raw-dir data/dataverse_files \
+  --output data/processed/polecat_plover_event_archive_2018_2024.parquet
+```
+
+The script standardizes field names and core data types, derives a small set of metadata fields, removes duplicate or missing event IDs, and writes the Parquet archive consumed by the downstream modeling scripts.
 
 ## Excluded Files
 
