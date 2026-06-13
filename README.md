@@ -1,8 +1,16 @@
 # Aid Risk Modeling
 
-This repository contains the core analysis code for a study of post-aid violence risk in humanitarian settings.
+This repository contains the core analysis code for a study that develops a two-stage, interpretable survival-modeling framework for post-aid violence risk in humanitarian settings.
 
 The package is intentionally lightweight. It includes scripts for event-data preparation, survival-dataset construction, Cox proportional hazards model comparison, RSF/GBS survival-model evaluation, residual diagnostics, and robustness analyses. Raw event data, processed analytical datasets, trained model objects, generated result tables, figures, and plotting scripts are not included.
+
+## Framework Overview
+
+The analysis is organized around a two-stage modeling framework:
+
+- Stage 1 uses theory-informed Cox proportional hazards models to construct post-aid survival outcomes, compare alternative covariate specifications, and select region-specific spatiotemporal neighborhoods.
+- Stage 2 uses the selected Stage 1 design to evaluate flexible survival learners, including Random Survival Forests and Gradient Boosting Survival models, under stratified 5-fold cross-validation.
+- Residual diagnostics and robustness analyses are used to assess model calibration, actor-proxy sensitivity, and whether regional patterns are driven by dominant country cases.
 
 ## Repository Contents
 
