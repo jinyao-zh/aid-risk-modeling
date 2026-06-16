@@ -218,11 +218,28 @@ def train_ml_survival_models_cv(
     model_specs = {
         "RandomSurvivalForest": (
             RandomSurvivalForest,
-            {"n_estimators": 200, "min_samples_split": 10, "min_samples_leaf": 5, "random_state": random_state, "n_jobs": -1},
+            {
+                "n_estimators": 100,
+                "max_features": "sqrt",
+                "min_samples_split": 6,
+                "min_samples_leaf": 3,
+                "max_depth": None,
+                "bootstrap": True,
+                "random_state": random_state,
+                "n_jobs": -1,
+            },
         ),
         "GradientBoostingSurvival": (
             GradientBoostingSurvivalAnalysis,
-            {"n_estimators": 200, "learning_rate": 0.05, "max_depth": 3, "random_state": random_state},
+            {
+                "loss": "coxph",
+                "n_estimators": 100,
+                "learning_rate": 0.1,
+                "max_depth": 3,
+                "subsample": 1.0,
+                "min_samples_leaf": 1,
+                "random_state": random_state,
+            },
         ),
     }
 
