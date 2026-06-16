@@ -32,7 +32,7 @@ OPTIMAL_CONFIGS = {
         "max_distance_km": 200,
         "sensitivity_id": "long_45d_200km",
     },
-    "Middle East & Central Asia": {
+    "Middle East": {
         "pre_window_days": 30,
         "analysis_window_days": 30,
         "max_distance_km": 500,
@@ -63,14 +63,14 @@ SCENARIOS = [
         "exclusion_basis": "largest_aid_observation_share",
     },
     {
-        "region": "Middle East & Central Asia",
+        "region": "Middle East",
         "scenario": "baseline",
         "excluded_country": "",
         "excluded_country_name": "",
         "exclusion_basis": "none",
     },
     {
-        "region": "Middle East & Central Asia",
+        "region": "Middle East",
         "scenario": "exclude_TUR",
         "excluded_country": "TUR",
         "excluded_country_name": "Turkey",

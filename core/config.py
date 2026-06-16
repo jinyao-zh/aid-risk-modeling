@@ -47,7 +47,7 @@ AUTHORITATIVE_REGION_CONFIG = {
         ],
     },
     "middle_east": {
-        "name": "Middle East & Central Asia",
+        "name": "Middle East",
         "output_prefix": "middle_east",
         "countries": ["SYR", "YEM", "IRQ", "AFG", "LBN", "PSE", "PAK", "IRN", "ISR", "TUR"],
         "aid_types": ["AID", "HUMANITARIAN_AID", "FOOD_AID", "RELIEF_AID"],
