@@ -115,3 +115,9 @@ python core/dominant_country_robustness.py \
 - The primary validation design uses stratified 5-fold cross-validation.
 - Generated outputs are written to `result/`, which is ignored by git.
 - This release is limited to core analysis code; data files, figures, plotting scripts, manuscript files, and build artifacts are excluded.
+
+## License
+
+The code in this repository is released under the MIT License. See `LICENSE` for details.
+
+This license applies only to the repository code and documentation. POLECAT/PLOVER data are not redistributed here and remain governed by the license and use terms listed on the original Harvard Dataverse source pages.
